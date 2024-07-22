@@ -3,12 +3,15 @@
 Data forwarding via the HTTP endpoint is activated using the `HTTP_URL` variable. Example: HTTP_URL="https://best.app.example"
 
 Forwarding via MQTT with `MQTT_ENABLE=true`
+
+Support multiple decoders, check example configuration in config/config.yaml
+
 ## Environ
 
 | Name | Default |
 | ---  |-------- |
 | PORT | 5000
-| DECODER_YAML | ./decoder.yaml |
+| CONFIG_YAML | ./config/config.yaml |
 | LOG_LEVEL | info
 | LOG_PRETTY | false
 | HTTP_URL | |

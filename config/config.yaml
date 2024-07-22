@@ -1,0 +1,18 @@
+---
+decoders:
+  - name: clime
+    decoder: decoder-clime.yaml
+    topic: clime/{device}
+    devices:
+      - 2159019023
+      - 2159019024
+  - name: counter
+    decoder: decoder-counter.yaml
+    topic: counter
+    devices:
+      - 2159019115
+  - name: default
+    decoder: decoder.yaml
+    default: true
+mqtt:
+  enable: true

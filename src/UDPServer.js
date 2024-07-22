@@ -35,7 +35,7 @@ class UDPServer extends EventEmitter {
     });
 
     this.server.on('message', (msg, rinfo) => {
-      log.debug(`Received from: ${rinfo.address}:${rinfo.port} l: ${msg.length} data: ${msg.toString('hex')}`);
+      log.info(`Received from: ${rinfo.address}:${rinfo.port} l: ${msg.length} data: ${msg.toString('hex')}`);
 
       try {
         if (msg.readUInt16LE(0) !== msg.length) {

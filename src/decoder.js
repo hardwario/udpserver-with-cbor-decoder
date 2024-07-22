@@ -190,9 +190,7 @@ class Decoder {
   }
 
   decode(hexbuf) {
-    log.debug('decoder.decode: hexbuf: %o', hexbuf);
     const decoded = cbor.decodeAllSync(hexbuf);
-    log.debug('decoder.decode: decoded: %o', decoded);
     return unrol(decoded[0], this.attributes);
   }
 }
