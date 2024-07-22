@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 const fs = require('fs');
-const log = require('./log');
 const axios = require('axios');
+const log = require('./log');
 const UDPServer = require('./UDPServer');
 const MQTTClient = require('./MQTTClient');
-const { getDecoderFromFile } = require('./decoder');
+const { newDecoderFromFile } = require('./decoder');
 
 const decoderYaml = process.env.DECODER_YAML || './decoder.yaml';
 
@@ -32,7 +32,7 @@ const mqttUrl = process.env.MQTT_BROKER_URL || 'mqtt://localhost:1883';
 
 log.info('Using decoder file: %s', decoderYaml);
 
-const decoder = getDecoderFromFile(decoderYaml);
+const decoder = newDecoderFromFile(decoderYaml);
 
 log.info('Connecting to MQTT broker: %s', mqttUrl);
 

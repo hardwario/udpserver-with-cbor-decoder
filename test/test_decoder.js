@@ -4,7 +4,7 @@ if (!process.env.LOG_LEVEL) {
   process.env.LOG_LEVEL = 'fatal';
 }
 const { expect } = require('chai');
-const { getDecoder } = require('../src/decoder');
+const { newDecoder } = require('../src/decoder');
 const { loadJSON, readFile, loadRaw } = require('./utils');
 
 describe('Test decoder', () => {
@@ -12,7 +12,7 @@ describe('Test decoder', () => {
   function testDecoder(name) {
     const rawHex = loadRaw(`./${name}.raw`);
     const expectData = loadJSON(`./${name}.json`);
-    const decoder = getDecoder(readFile(`./${name}.yaml`));
+    const decoder = newDecoder(readFile(`./${name}.yaml`));
     const data = decoder.decode(rawHex);
     // console.log(JSON.stringify(data, null, 2));
     expect(data).to.deep.equal(expectData);
@@ -40,7 +40,7 @@ describe('Test decoder', () => {
 
   it('should error insufficient data', () => {
     const rawHex = loadRaw(`./decoder-error-insufficient-data.raw`);
-    const decoder = getDecoder(readFile(`./decoder-clime.yaml`));
+    const decoder = newDecoder(readFile(`./decoder-clime.yaml`));
     try {
       decoder.decode(rawHex);
     } catch (error) {

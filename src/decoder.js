@@ -197,13 +197,13 @@ class Decoder {
   }
 }
 
-function getDecoder(text) {
+function newDecoder(text) {
   return new Decoder(text);
 }
 
-function getDecoderFromFile(filename) {
+function newDecoderFromFile(filename) {
   const text = fs.readFileSync(filename).toString('utf8');
-  return getDecoder(text);
+  return newDecoder(text);
 }
 
-module.exports = { getDecoder, getDecoderFromFile };
+module.exports = { newDecoder, newDecoderFromFile };
