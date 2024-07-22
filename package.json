@@ -32,5 +32,6 @@
   "prettier": {
     "singleQuote": true,
     "printWidth": 120
-  }
+  },
+  "packageManager": "pnpm@9.6.0"
 }
