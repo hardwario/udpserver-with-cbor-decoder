@@ -9,14 +9,13 @@ services:
     - "1883:1883"
 
   flot-server:
-    image: hardwario/udpserver-with-cbor-decoder:v1.1.0
+    build: .
     restart: unless-stopped
     environment:
       LOG_LEVEL: debug
       LOG_PRETTY: 1
       MQTT_BROKER_URL: mqtt://mqtt-broker
-    volumes:
-      - ./config:/app/config
+
     ports:
       - "5000:5000/udp"
     depends_on:
